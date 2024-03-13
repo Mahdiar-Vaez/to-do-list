@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa6";
@@ -7,8 +7,56 @@ export default function App() {
   const [completeTab, setCompleteTab] = useState(true);
   const [title, setTitle] = useState();
   const [des, setDes] = useState();
-  const list = [];
-
+  const [list, setList] = useState([]);
+  const handleAddTodo = () => {
+    if (title && des) {
+      let newToDoItem = {
+        title: title,
+        description: des,
+      };
+      let updateToDo = [...list];
+      updateToDo.push(newToDoItem);
+      setList(updateToDo);
+      localStorage.setItem('toDoList', JSON.stringify(updateToDo));
+      setTitle("");
+      setDes("");
+    }
+  };
+  useEffect(()=>{
+    let toDoStorage=JSON.parse(localStorage.getItem('toDoList'))
+    if(toDoStorage)
+    setList(toDoStorage)
+  },[])
+  let Items = list.map((e, index) => {
+    return (
+      <div key={index} className="tasks">
+      <div className="task-content">
+        <h3>{e.title}</h3>
+        <p>{e.description}</p>
+      </div>
+      <div className="task-icons">
+        <FaCheck
+          className="check-icon"
+          style={{
+            cursor: "pointer",
+            fontSize: "40px",
+            "&:hover": {
+              color: "red !important",
+            },
+          }}
+        />
+        <IoTrashBinOutline
+          className="bin-icon"
+          style={{
+            cursor: "pointer",
+            fontSize: "40px",
+          }}
+        />
+      </div>
+      
+    </div>
+    );
+  });
   return (
     <div>
       <h3 className="title">To Do List </h3>
@@ -33,18 +81,7 @@ export default function App() {
             />
           </div>
           <div className="btn">
-            <button
-              onClick={() => {
-                if (title && des) {
-                  list.unshift({ ...list, title: title, des: des });
-                  setTitle("");
-                  setDes("");
-                  console.log(list);
-                }
-              }}
-            >
-              Add{" "}
-            </button>
+            <button onClick={handleAddTodo}>Add </button>
           </div>
         </div>
 
@@ -62,25 +99,8 @@ export default function App() {
             Completed
           </button>
         </div>
-        <div className="tasks">
-          <div className="task-content">
-            <h3 >title</h3>
-            <p>Description</p>
-          </div>
-          <div className="task-icons">
-              <FaCheck className="check-icon" style={{
-                cursor:'pointer'
-                ,fontSize:'40px',
-                '&:hover':{
-                  color:'red !important'
-                }
-              }}/>
-              <IoTrashBinOutline className="bin-icon" style={{
-                  cursor:'pointer'
-                  ,fontSize:'40px'
-              }}/>
-          </div>
-        </div>
+        {Items}
+      
       </div>
     </div>
   );

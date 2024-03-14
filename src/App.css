@@ -79,31 +79,50 @@ color: white;
   border: 1px solid white;
 } 
 /*  */
-.tasks{
+.tasks , .checked{
   
   display: flex;
   width: 100%;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-top:2px solid greenyellow ;
-  height: 80%;
+  
+  
   padding: bottom 5px ;
 }
-.tasks .task-content{
+.tasks .task-content , .checked .checked-content{
   display: flex;
   flex-direction: column;
   width: 80%;
+  flex-wrap: wrap;
+  height: max-content;
+
   padding: 20px;
 }
-.tasks .task-content h3{
+.tasks .task-content h3 , .checked .checked-content h3{
   font-size: 25px;
   font-weight: 700;
   color: greenyellow;
-}
-.tasks .task-content p{
-  font-size: 15px;
+  height: max-content;
+  word-wrap: break-word; /* add this property */
+  width: 400px;
+  
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  word-break: break-word; 
 
+
+}
+.tasks .task-content p , .checked .checked-content p{
+  font-size: 15px;
+  width: 400px;
+  word-wrap: break-word; /* add this property */
+  
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  word-break: break-word; 
 }
 .tasks .task-icons{
   display: flex;
@@ -112,10 +131,14 @@ color: white;
   width: 20%;
   height: 100%;
   gap: 10px;
+  
 }
 .check-icon:hover{
   color: rgb(4, 109, 46) !important;
 }
 .bin-icon:hover{
   color: rgb(159, 35, 28) !important;
+}
+del{
+color: black;
 }

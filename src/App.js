@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa6";
-
+import Swal from 'sweetalert2'
 export default function App() {
   const [completeTab, setCompleteTab] = useState(false);
   const [title, setTitle] = useState();
@@ -49,6 +49,17 @@ export default function App() {
       localStorage.setItem('toDoList', JSON.stringify(updateToDo));
       setTitle("");
       setDes("");
+    }
+    else{
+      Swal.fire({
+        title: "عنوان و متن عنوان رو پر گن 🥰",
+        width: 600,
+        padding: "3em",
+        color: " rgb(173, 255, 47)",
+        background: "#1f1e1e",
+        backgroundColor: '',
+        
+      });
     }
   };
   useEffect(()=>{

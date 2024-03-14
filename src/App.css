@@ -53,6 +53,7 @@ color: white;
   border: 2px solid #1f1e1e ;}
 .btn-area button{
   height: 30px;
+ background-color: rgba(173, 255, 47, .5) ;
   cursor: pointer;
 }
 .btn-area button:nth-child(1){
@@ -96,6 +97,7 @@ color: white;
   display: flex;
   flex-direction: column;
   width: 80%;
+
   flex-wrap: wrap;
   height: max-content;
 
@@ -107,7 +109,7 @@ color: white;
   color: greenyellow;
   height: max-content;
   word-wrap: break-word; /* add this property */
-  width: 400px;
+  width: 300px;
   
   overflow-wrap: break-word; 
   word-wrap: break-word; 

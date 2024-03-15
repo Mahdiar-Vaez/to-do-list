@@ -110,12 +110,9 @@ color: white;
   height: max-content;
   word-wrap: break-word; /* add this property */
   width: 300px;
-  
   overflow-wrap: break-word; 
   word-wrap: break-word; 
   word-break: break-word; 
-
-
 }
 .tasks .task-content p , .checked .checked-content p{
   font-size: 15px;
@@ -127,6 +124,8 @@ color: white;
   word-break: break-word; 
 }
 .tasks .task-icons{
+
+
   display: flex;
   padding: 20px;
   justify-content: space-between !important;
@@ -136,11 +135,73 @@ color: white;
   
 }
 .check-icon:hover{
-  color: rgb(4, 109, 46) !important;
+  color: greenyellow !important;
 }
 .bin-icon:hover{
   color: rgb(159, 35, 28) !important;
 }
 del{
 color: black;
+text-decoration: line-through;
+text-decoration-color:rgb(4, 109, 46) ;
 }
+
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .wrapper{
+    width: 100vw;
+ 
+  }
+  .title{
+    text-align: center;
+  }
+  .inputs {
+    display: flex;
+    flex-direction: column;
+      
+  }
+
+  .tasks , .checked{
+    
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+  
+  }
+  .btn button{
+    background-color:  rgb(173, 255, 47);
+    width: 100px;
+    height: 42px;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+  .tasks .task-content h3 , .checked .checked-content h3{
+    font-size: 20px;
+    width: 195px;
+    font-weight: 700;
+    word-wrap: break-word; /* add this property */
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    word-break: break-word; 
+  }
+  .tasks .task-content p , .checked .checked-content p{
+    font-size: 15px;
+    width: 150px;
+    word-wrap: break-word; /* add this property */
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    word-break: break-word; 
+  }
+.checked{
+  justify-content: end;
+  align-items: center;
+}
+.checked-content{
+  width: 70% !important;
+}
+
+}
+

@@ -52,11 +52,11 @@ export default function App() {
     }
     else{
       Swal.fire({
-        title: "عنوان و متن عنوان رو پر گن 🥰",
+        title: "عنوان و متن عنوان رو پر کن 🥰",
         width: 600,
         padding: "3em",
         color: " rgb(173, 255, 47)",
-        background: "#1f1e1e",
+        background: "#1c1a1a",
         backgroundColor: '',
         
       });
@@ -69,7 +69,7 @@ export default function App() {
     setChecked(CheckedItems)
   
   },[])
-  let CheckedItems=Checked.map((e,index)=>{
+  let CheckedItems=Checked?.map((e,index)=>{
     return(
       <div key={index} className="checked">
       <div className="checked-content">
@@ -89,7 +89,7 @@ export default function App() {
     </div>
     )
   })
-  let Items = list.map((e, index) => {
+  let Items = list?.map((e, index) => {
     return (
       <div key={index} className="tasks">
       <div className="task-content">
@@ -122,7 +122,7 @@ export default function App() {
   });
   return (
     <div>
-      <h3 className="title">To Do List </h3>
+      <h3 className="title">{  completeTab?"Completed Tab " :"To Do List Tab" }</h3>
       <div className="wrapper">
         <div className="inputs">
           <div>
